@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>For Sale: NSU Supermax Motorcycle</title>
+	<link rel="stylesheet" href="main.css">
+</head>
+<body>
+	<div class="container">
+		<h1>For Sale: 1957 (maybe 1961) NSU Supermax</h1>
+		<div class="gallery">
+			<img src="images/image0.jpeg" alt="NSU Supermax - Front View">
+			<img src="images/image1.jpeg" alt="NSU Supermax - Side View">
+			<img src="images/image2.jpeg" alt="NSU Supermax - Engine View">
+			<img src="images/image3.jpeg" alt="NSU Supermax - Rear View">
+		</div>
+		<div class="gallery-note">(click to enlarge)</div>
+		<div class="details">
+			<p><strong>1957 (maybe 1961) NSU Supermax, rare for the US</strong><br>
+			250cc SOHC single, 4 speed<br>
+			Drum brakes F&amp;R<br>
+			Recently recommissioned after long storage by previous owner</p>
+			<p>Repairs/ new parts as listed below:</p>
+			<ul>
+				<li>F&amp;R tires and tubes</li>
+				<li>New needle jet and carb clean</li>
+				<li>tank derusted and cleaned</li>
+				<li>new front springs and shocks</li>
+				<li>new front suspension bushings</li>
+				<li>new rear suspension bushings and swing arm pivot shaft</li>
+				<li>new wiring loom</li>
+				<li>new headlight assembly</li>
+				<li>new seat cover</li>
+				<li>oil change and filter</li>
+				<li>new side stand</li>
+				<li>a few other odds and ends</li>
+			</ul>
+			<p>The bike is fully functional, starts easily, runs and idles, brakes and turns as it should. It is ready to ride today and is registered in Massachusetts. I have a clear title in hand, in the seller’s (my) name.</p>
+			<p class="price">Asking <strong>$5300</strong>, slightly negotiable.</p>
+			<p class="contact">Contact Dave @ <a href="tel:5085775441">508 577 5441</a> or <a href="mailto:davidtorpey922@gmail.com">davidtorpey922@gmail.com</a></p>
+		</div>
+	</div>
+	<!-- Modal for full image view -->
+	<div class="modal" id="imgModal">
+		<span class="modal-close" id="modalClose">&times;</span>
+		<span class="modal-nav" id="modalPrev">&#10094;</span>
+		<img id="modalImg" src="" alt="Full Size">
+		<span class="modal-nav" id="modalNext">&#10095;</span>
+	</div>
+<script>
+// Modal image viewer with navigation
+const modal = document.getElementById('imgModal');
+const modalImg = document.getElementById('modalImg');
+const closeBtn = document.getElementById('modalClose');
+const prevBtn = document.getElementById('modalPrev');
+const nextBtn = document.getElementById('modalNext');
+const galleryImgs = Array.from(document.querySelectorAll('.gallery img'));
+let currentIdx = 0;
+
+function openModal(idx) {
+	currentIdx = idx;
+	modal.classList.add('open');
+	modalImg.src = galleryImgs[currentIdx].src;
+	modalImg.alt = galleryImgs[currentIdx].alt;
+}
+
+galleryImgs.forEach((img, idx) => {
+	img.addEventListener('click', function() {
+		openModal(idx);
+	});
+});
+
+function showPrev() {
+	currentIdx = (currentIdx - 1 + galleryImgs.length) % galleryImgs.length;
+	modalImg.src = galleryImgs[currentIdx].src;
+	modalImg.alt = galleryImgs[currentIdx].alt;
+}
+
+function showNext() {
+	currentIdx = (currentIdx + 1) % galleryImgs.length;
+	modalImg.src = galleryImgs[currentIdx].src;
+	modalImg.alt = galleryImgs[currentIdx].alt;
+}
+
+prevBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+	showPrev();
+});
+nextBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+	showNext();
+});
+
+closeBtn.addEventListener('click', function(e) {
+	e.stopPropagation();
+	modal.classList.remove('open');
+	modalImg.src = '';
+});
+
+modal.addEventListener('click', function(e) {
+	if (e.target === modal) {
+		modal.classList.remove('open');
+		modalImg.src = '';
+	}
+});
+
+// Optional: keyboard navigation
+document.addEventListener('keydown', function(e) {
+	if (!modal.classList.contains('open')) return;
+	if (e.key === 'ArrowLeft') showPrev();
+	if (e.key === 'ArrowRight') showNext();
+	if (e.key === 'Escape') {
+		modal.classList.remove('open');
+		modalImg.src = '';
+	}
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+.gallery-note {
+    text-align: center;
+    font-size: 0.98rem;
+    color: #666;
+    margin-bottom: 18px;
+    margin-top: -8px;
+    letter-spacing: 0.01em;
+}
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    font-size: 3rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100;
+    user-select: none;
+    padding: 0 18px;
+    text-shadow: 0 2px 8px #000;
+    transition: color 0.2s;
+}
+.modal-nav#modalPrev {
+    left: 10px;
+}
+.modal-nav#modalNext {
+    right: 10px;
+}
+.modal-nav:hover {
+    color: #1b7e3c;
+}
+body {
+    background: #f7f7f7;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #222;
+}
+
+.container {
+    max-width: 700px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    padding: 32px 24px 24px 24px;
+}
+
+h1 {
+    text-align: center;
+    color: #2a4d69;
+    margin-bottom: 28px;
+    font-size: 2rem;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    justify-items: center;
+    margin-bottom: 24px;
+    width: 100%;
+}
+
+.gallery img {
+    width: 267px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background: #eee;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.modal.open {
+    display: flex;
+}
+
+.modal img {
+    max-width: 90vw;
+    max-height: 85vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+    background: #fff;
+}
+
+.modal-close {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1100;
+    text-shadow: 0 2px 8px #000;
+}
+
+.details {
+    font-size: 1.08rem;
+    line-height: 1.6;
+}
+
+.details ul {
+    margin: 10px 0 18px 24px;
+    padding-left: 18px;
+}
+
+.price {
+    font-size: 1.3rem;
+    color: #1b7e3c;
+    font-weight: bold;
+    margin: 18px 0 10px 0;
+}
+
+.contact {
+    font-size: 1.1rem;
+    margin-top: 10px;
+}
+
+.contact a {
+    color: #2a4d69;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
